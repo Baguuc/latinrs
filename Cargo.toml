@@ -1,6 +1,7 @@
 [package]
 name = "latinrs"
 version = "0.1.0"
+description = "Rust package that transliterates text and characters into thier latin form."
+authors = ["Jan Żukowski"]
 edition = "2021"
-
-[dependencies]
+license = "MIT"
