@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 
-pub fn transliterate_char(chr: char) -> String {
+pub fn encode_char(chr: char) -> String {
     let charmap: HashMap<u32, &str> = HashMap::from_iter(vec![
         (160, " "),
         (161, "!"),
@@ -849,26 +849,26 @@ pub fn transliterate_char(chr: char) -> String {
         (65533, "?")
     ]);
 
-    let transliterated = charmap.get(&(chr as u32));
+    let encoded = charmap.get(&(chr as u32));
 
-    if transliterated.is_none() {
+    if encoded.is_none() {
         return chr.to_string();
     }
 
-    let transliterated = transliterated
+    let encoded = encoded
         .unwrap()
         .to_string();
 
-    return transliterated;
+    return encoded;
 }
 
 
-pub fn transliterate_str(s: &str) -> String {
-    let transliterated = s.chars()
+pub fn encode_str(s: &str) -> String {
+    let encoded = s.chars()
         .map(|chr| {
-            transliterate_char(chr)
+            encode_char(chr)
         })
         .collect::<String>();
 
-    return transliterated;
+    return encoded;
 }
