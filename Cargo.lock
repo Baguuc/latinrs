@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "translitrs"
+name = "latinrs"
 version = "0.1.0"

@@ -1,6 +1,35 @@
+//! # Latin.rs
+//! 
+//! Latin.rs is a package that transliterates text and characters into thier latin form.
+
+
 use std::collections::HashMap;
 
 
+/// Encode a **single special character** into its latin form, 
+/// if the character is not special it returns the original form.
+/// Note that the output of this function is str meaning **it can be longer than one character**.
+/// 
+/// ## Examples
+/// 
+/// ```rust
+/// let chr = 'Ż';
+/// let latin = latinrs::encode_char(chr);
+/// 
+/// assert_eq!("Z".to_string(), latin);
+/// 
+/// 
+/// let chr = 'a';
+/// let latin = latinrs::encode_char(chr);
+/// 
+/// assert_eq!("a".to_string(), latin);
+/// 
+/// 
+/// let chr = '␐';
+/// let latin = latinrs::encode_char(chr);
+///
+/// assert_eq!("DLE".to_string(), latin);
+/// ```
 pub fn encode_char(chr: char) -> String {
     let charmap: HashMap<u32, &str> = HashMap::from_iter(vec![
         (160, " "),
@@ -863,6 +892,22 @@ pub fn encode_char(chr: char) -> String {
 }
 
 
+/// Encode all special characters in a string into their latin form.
+/// 
+/// ## Examples
+/// 
+/// ```rust
+/// let s = "Zażółć gęślą jaźń EUR :-)?!@#";
+/// let latin = latinrs::encode_str(s);
+/// 
+/// assert_eq!("Zazolc gesla jazn EUR :-)?!@#".to_string(), latin);
+/// 
+/// let s = "Hello, World!";
+/// let latin = latinrs::encode_str(s);
+/// 
+/// assert_eq!("Hello, World!".to_string(), latin);
+/// ```
+/// 
 pub fn encode_str(s: &str) -> String {
     let encoded = s.chars()
         .map(|chr| {
