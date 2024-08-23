@@ -861,3 +861,14 @@ pub fn transliterate_char(chr: char) -> String {
 
     return transliterated;
 }
+
+
+pub fn transliterate_str(s: &str) -> String {
+    let transliterated = s.chars()
+        .map(|chr| {
+            transliterate_char(chr)
+        })
+        .collect::<String>();
+
+    return transliterated;
+}
