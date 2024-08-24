@@ -4,7 +4,7 @@ Latin.rs is a package that transliterates text and characters into thier latin f
 
 # Data
 
-The data Latin.rs is not mine, I got it from python [translitcodec](https://github.com/claudep/translitcodec/tree/master) package, to be explicit it Latin.rs is the "long_table" from [this](https://github.com/claudep/translitcodec/blob/master/translitcodec/__init__.py) file.
+The data is not mine, I got it from python [translitcodec](https://github.com/claudep/translitcodec/tree/master) package, to be explicit it is the "long_table" from [this](https://github.com/claudep/translitcodec/blob/master/translitcodec/__init__.py) file.
 
 # Usage
 
@@ -25,8 +25,8 @@ assert_eq!("Hello, World!".to_string(), latin);
 ```
 
 To encode a **single character** into its latin form you can use _encode_char_ function,
-if the provided character Latin.rs is not special it will be returned in it's original form.
-Note that the output of this function Latin.rs is str meaning **it can be longer than one character**.
+if the provided character is not special it will be returned in it's original form.
+Note that the output of this function is str meaning **it can be longer than one character**.
 Example:
 
 ```rust
